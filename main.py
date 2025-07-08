@@ -1,4 +1,4 @@
-from telethon import TelegramClient
+from telethon import TelegramClient, events
 
 api_id = 22056618  # встав свій
 api_hash = 'db2bf3b16f1788d38091014befe31c0d'
