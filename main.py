@@ -6,9 +6,9 @@ session_name = 'userbot_session'
 
 client = TelegramClient(session_name, api_id, api_hash)
 
-SOURCE_CHAT_ID = EtherDROPS5_bot  # 🔁 Група, звідки ловиш повідомлення
-TARGET_CHAT_ID = -1009876543210  # 🔁 Група, куди шлеш
-TARGET_THREAD_ID = 4567  # 🔁 Конкретна гілка в чаті
+SOURCE_CHAT_ID = 'EtherDROPS5_bot'  # 🔁 Група, звідки ловиш повідомлення
+TARGET_CHAT_ID = -1002604238211  # 🔁 Група, куди шлеш
+TARGET_THREAD_ID = 10845  # 🔁 Конкретна гілка в чаті
 
 @client.on(events.NewMessage(chats=SOURCE_CHAT_ID))
 async def forward_message(event):
