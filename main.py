@@ -6,14 +6,22 @@ session_name = 'userbot_session'
 
 client = TelegramClient(session_name, api_id, api_hash)
 
-async def main():
-    try:
-        # 🔁 Вкажи правильний цільовий chat ID (група або супергрупа)
-        TARGET_CHAT_ID = -1002604238211
-        await client.send_message(TARGET_CHAT_ID, "✅ Тест: юзербот може писати!")
-        print("✅ Повідомлення надіслано!")
-    except Exception as e:
-        print(f"❌ Помилка надсилання: {e}")
+SOURCE_CHAT_ID = EtherDROPS5_bot  # 🔁 Група, звідки ловиш повідомлення
+TARGET_CHAT_ID = -1009876543210  # 🔁 Група, куди шлеш
+TARGET_THREAD_ID = 4567  # 🔁 Конкретна гілка в чаті
 
-with client:
-    client.loop.run_until_complete(main())
+@client.on(events.NewMessage(chats=SOURCE_CHAT_ID))
+async def forward_message(event):
+    try:
+        print(f"🔁 Пересилаю в гілку {TARGET_THREAD_ID}")
+        await client.send_message(
+            entity=TARGET_CHAT_ID,
+            message=event.message,
+            reply_to=TARGET_THREAD_ID
+        )
+    except Exception as e:
+        print(f"❌ Error: {e}")
+
+client.start()
+print("✅ Слухаю повідомлення й пересилаю в гілку...")
+client.run_until_disconnected()
