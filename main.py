@@ -7,7 +7,7 @@ session_name = 'userbot_session'
 client = TelegramClient(session_name, api_id, api_hash)
 
 # 📩 Джерела (як на скріні) — username БЕЗ "@"
-SOURCE_CHAT_1 = 'EtherDROPSS_bot'
+SOURCE_CHAT_1 = 'EtherDROPS5_bot'
 SOURCE_CHAT_2 = 'redactedsystemsbot'  # ти писав: @redactedsystemsbot
 
 # 🎯 Куди шлеш (як на скріні)
